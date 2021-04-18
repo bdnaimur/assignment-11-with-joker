@@ -8,6 +8,7 @@ import ReviewHomePage from '../ReviewHomePage/ReviewHomePage';
 import ShowOurTeam from '../ShowOurTeam/ShowOurTeam'
 import ProcessPayment from '../ProcessPayment/ProcessPayment';
 import Footer from '../Footer/Footer';
+import WhoWeAre from '../WhoWEAre/WhoWeAre';
 const Home = () => {
     const [pitha, setPitha] = useState([]);
     
@@ -33,6 +34,7 @@ const Home = () => {
             <Bookings/>
             <ReviewHomePage/>
             <ShowOurTeam/>
+            <WhoWeAre/>
             <Footer/>
         </div>
     );

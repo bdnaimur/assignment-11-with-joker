@@ -20,6 +20,7 @@ const Header = () => {
         marginTop: "20px",
         textShadow: "2px 2px 5px lightGray"
     }
+    console.log(loggedInUser);
     return (
 
         <section class="background-color">

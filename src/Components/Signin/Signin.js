@@ -21,6 +21,7 @@ const Signin = () => {
     const location = useLocation();
     let { from } = location.state || { from: { pathname: "/" } };
     const [user, setUser] = useState({
+        superAdmin: 'bdnaimur@gmail.com',
         email: '',
         password: '',
         name: ''
@@ -30,10 +31,14 @@ const Signin = () => {
     const googleSignin = () => {
         firebase.auth().signInWithPopup(googleProvider)
             .then((result) => {
-                const user = result.user;
-                user.isSigned = true;
-                setUser(user);
-                setLoggedInUser(user);
+                const users = result.user;
+               if( user.superAdmin == users.email){
+                   user.superAdmin = true;
+               }
+
+                users.isSigned = true;
+                setUser(users);
+                setLoggedInUser(users);
                 if (loggedInUser) {
                     history.replace(from);
                 }
@@ -79,7 +84,7 @@ const Signin = () => {
         }
         
     }
-    console.log(loggedInUser);
+    console.log(loggedInUser,user);
     return (
         <div className="form-styling">
             <form onSubmit={hanldeSignInSubmit} className="form-style" >
