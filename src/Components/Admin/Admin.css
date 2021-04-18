@@ -1,0 +1,24 @@
+.manage-product{
+    background-color: rgb(163, 88, 1);
+    color: white;
+    border-radius: 5px;
+    box-shadow: -5px -5px 10px lightgray;
+    max-height: 400px;
+}
+.manage-product span{
+    font-size: 20px;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 5px;
+}
+.manage-product span:nth-child(1){
+    margin-top: 10px;
+}
+.manage-product span:nth-child(7){
+    /* display: inline-block; */
+    margin-bottom: 20px;
+}
+.icon-style{
+    color: rgb(207, 199, 200);
+}

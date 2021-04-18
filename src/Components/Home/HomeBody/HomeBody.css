@@ -1,0 +1,21 @@
+.body-text-left{
+    color: rgb(49, 22, 22);
+    font-weight: 800;
+}
+.body-text-right{
+    font-weight: 800;
+    color: tomato;
+}
+.homeBody-container{
+    text-align: center;
+    padding: 200px 0px;
+}
+.homeBody-container p{
+    font-weight: 600;
+}
+.home-header{
+    background-image: url('../../../image/tour-place-4.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}

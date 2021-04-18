@@ -1,0 +1,40 @@
+.pitha-style{
+    margin: 10px 0px;
+    text-align: center;
+}
+.pitha-inner-style{
+    border-radius: 10px 10px 5px 5px;
+    background-color: rgb(240, 240, 240);
+}
+.pitha-style{
+    padding: 7px;
+}
+.pitha-style img{
+    width: 100%;
+    height: 300px;
+    border-radius: 10px 10px 0px 0px;
+}
+.price{
+    padding: 7px 5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px #E0A800;
+    background-color: none;
+}
+.logo{
+    width: 100px;
+    border-radius: 5px;
+}
+#detailShow{
+    width: 500px;
+    margin: 50px auto;
+}
+#detailShow img{
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+}
+#missMatch{
+    font-size: 50px;
+    color: red;
+    text-align: center;
+}

@@ -1,0 +1,64 @@
+.form-style{
+    width: 400px;
+    margin: 0 auto;
+    /* height: 500px; */
+    box-shadow: 10px 10px 30px lightgray;
+    padding: 10px 10px;
+    background-color: white;
+}
+.form-style h3{
+    margin-left: 20px;
+}
+.form-style input{    
+    width: 350px;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    outline: none;
+    line-height: 30px;
+    font-weight: 500;
+    margin-left: 20px;
+    margin-top: 30px;
+}
+.checkbox input{
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+.checkbox{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.checkbox .forget{
+    margin-top: 25px;
+    color: tomato;
+    margin-right: 15px;
+}
+.form-style .login-btn{
+    margin-left: 15px;
+    margin-bottom: 10px;
+    width: 90%;
+    background-color: tomato;
+}
+.form-style p{
+    text-align: center;
+}
+.form-style p span{
+    color: tomato;
+}
+.social-signin{
+    margin: 0 auto;
+    text-align: center;
+    width: 350px;
+}
+.social-signin button .icon1, .icon2{
+    font-size: 30px;   
+}
+.social-signin button .icon1{
+    color:rgb(100, 100, 255);
+    margin-right: 60px;
+}
+.social-signin button .icon2{
+    color: tomato;
+    margin-right: 75px;
+}
