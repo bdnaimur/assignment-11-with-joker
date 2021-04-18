@@ -8,7 +8,7 @@ const Orders = () => {
     const [pitha, setPitha] = useState([]);
     let dependency = 0;
     useEffect(() => {
-        const url = `http://localhost:5055/pithaUser?email=${loggedInUser.email}`;
+        const url = `https://whispering-lowlands-13005.herokuapp.com/pithaUser?email=${loggedInUser.email}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setPitha(data))

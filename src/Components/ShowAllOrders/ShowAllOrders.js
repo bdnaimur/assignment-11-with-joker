@@ -4,7 +4,7 @@ import ShowAllOrdersDetails from './ShowAllOrdersDetails/ShowAllOrdersDetails';
 const ShowAllOrders = () => {
     const [allOrders, setAllOrders] = useState([] || 1)
     useEffect(() => {
-        const url = `http://localhost:5055/vramankaris`;
+        const url = `https://whispering-lowlands-13005.herokuapp.com/vramankaris`;
         fetch(url)
             .then(res => res.json())
             .then(data => {

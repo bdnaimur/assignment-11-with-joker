@@ -23,7 +23,7 @@ const Admin = () => {
   });
 
   useEffect(() => {
-    const url = `http://localhost:5055/services`;
+    const url = `https://whispering-lowlands-13005.herokuapp.com/services`;
     fetch(url)
       .then(res => res.json())
       .then(data => {
@@ -40,7 +40,7 @@ const Admin = () => {
       price: data.price
     };
     console.log(eventData);
-    const url = `http://localhost:5055/addServices`;
+    const url = `https://whispering-lowlands-13005.herokuapp.com/addServices`;
 
     fetch(url, {
       method: 'POST',

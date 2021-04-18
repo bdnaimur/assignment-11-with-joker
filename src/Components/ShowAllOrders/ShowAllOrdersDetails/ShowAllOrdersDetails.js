@@ -9,7 +9,7 @@ const ShowAllOrdersDetails = ({ orders }) => {
     const handleClick = id => {
         // const clickeIdStatusInfo = orders.filter(stInfo => stInfo._id === id);
         
-            const url = "http://localhost:5055/vramankaris";
+            const url = "https://whispering-lowlands-13005.herokuapp.com/vramankaris";
             // console.log(url);
             fetch(url)
                 .then(res => res.json())
@@ -23,7 +23,7 @@ const ShowAllOrdersDetails = ({ orders }) => {
         
         // const dataInfo = {...clickeIdStatusInfo,...statusInfo};
         // console.log(clickeIdStatusInfo,dataInfo);
-        const uri = `http://localhost:5055/addStatus`;
+        const uri = `https://whispering-lowlands-13005.herokuapp.com/addStatus`;
         fetch(uri, {
             method: 'POST',
             headers: {
