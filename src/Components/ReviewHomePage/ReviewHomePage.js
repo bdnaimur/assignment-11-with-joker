@@ -4,7 +4,7 @@ import AllReview from '../AllReview/AllReview';
 const ReviewHomePage = () => {
     const [review, setReview] = useState([] || 1);
     useEffect(()=>{
-        const url = `https://whispering-lowlands-13005.herokuapp.com/reviews`;
+        const url = `http://localhost:5055/reviews`;
         fetch(url)
         .then(res =>res.json())
         .then(data =>{

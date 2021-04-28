@@ -9,14 +9,14 @@ const CheckOut = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
     // console.log(product);
     useEffect(() => {
-        const url = "https://whispering-lowlands-13005.herokuapp.com/services";
+        const url = "http://localhost:5055/services";
         // console.log(url);
         fetch(url)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                const clickedPitha = data.find(dt => dt._id === pithaId);
-                setProduct(clickedPitha);
+                const clickedProduct = data.find(dt => dt._id === pithaId);
+                setProduct(clickedProduct);
             })
     }, [pithaId])
     const handleClick = () => {
@@ -24,12 +24,13 @@ const CheckOut = () => {
         const productWithUser = {
             name:product.name,
             imageURL:product.imageURL,
-            price:product.price
+            price:product.price,
+            status:"pending"
         };
         productWithUser.email = loggedInUser.email;
         productWithUser.displayName = loggedInUser.displayName;
         console.log(productWithUser);
-        const url = "https://whispering-lowlands-13005.herokuapp.com/addProductWithUser";
+        const url = "http://localhost:5055/addProductWithUser";
         fetch(url, {
             method: 'POST', 
             headers: {
