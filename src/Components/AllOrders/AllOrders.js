@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const AllOrders = (props) => {
-    const pitha = props.pitha;
+const AllOrders = ({pitha}) => {
+    // const pitha = props.pitha;
     return (
         <tr>
             <td>{pitha.name}</td>

@@ -9,11 +9,12 @@ import ShowOurTeam from '../ShowOurTeam/ShowOurTeam'
 import ProcessPayment from '../ProcessPayment/ProcessPayment';
 import Footer from '../Footer/Footer';
 import WhoWeAre from '../WhoWEAre/WhoWeAre';
+import ModalForEdit from '../ModalForEdit/ModalForEdit';
 const Home = () => {
     const [pitha, setPitha] = useState([]);
     
     useEffect(()=>{
-        const url = `https://whispering-lowlands-13005.herokuapp.com/vramankaris`;
+        const url = `http://localhost:5055/vramankaris`;
         fetch(url)
         .then(res =>res.json())
         .then(data =>setPitha(data))

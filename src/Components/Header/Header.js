@@ -20,7 +20,7 @@ const Header = () => {
         marginTop: "20px",
         textShadow: "2px 2px 5px lightGray"
     }
-    console.log(loggedInUser);
+    console.log(loggedInUser.superAdmin);
     return (
 
         <section class="background-color">
@@ -44,10 +44,12 @@ const Header = () => {
                                 {/* <a class="nav-link" href="/orders">Orders</a> */}
                                 <Link class="nav-link" to="/orders">Orders</Link>
                             </li>
-                            <li class="nav-item">
+                            {/* {loggedInUser.superAdmin && */}
+                                <li class="nav-item">
                                 {/* <a class="nav-link" href="/orders">Orders</a> */}
                                 <Link class="nav-link" to="/admin">Admin</Link>
                             </li>
+                            {/* }  */}
                             <li class="nav-item">
                                 {/* <a class="nav-link" href="/deals">Deals</a> */}
                                 <Link class="nav-link " to="/deals">Deals</Link>

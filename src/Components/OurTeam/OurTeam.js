@@ -15,7 +15,7 @@ const OurTeam = () => {
     });
 
     useEffect(() => {
-        const url = `https://whispering-lowlands-13005.herokuapp.com/ourTeams`;
+        const url = `http://localhost:5055/ourTeams`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -25,14 +25,14 @@ const OurTeam = () => {
                 setPithaWithUser(data)
             })
     }, [render])
-    const onSubmit = data => {
+    const onSubmit = (data, e) => {
         const eventData = {
             name: data.name,
             imageURL: imageURL,
             price: data.price
         };
         console.log(eventData);
-        const url = `https://whispering-lowlands-13005.herokuapp.com/addOurTeams`;
+        const url = `http://localhost:5055/addOurTeams`;
 
         fetch(url, {
             method: 'POST',
@@ -42,6 +42,7 @@ const OurTeam = () => {
             body: JSON.stringify(eventData)
         })
             .then(res => console.log('server side response', res))
+        e.target.reset();
     };
 
     const handleImageUpload = event => {

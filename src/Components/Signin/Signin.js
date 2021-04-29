@@ -21,7 +21,7 @@ const Signin = () => {
     const location = useLocation();
     let { from } = location.state || { from: { pathname: "/" } };
     const [user, setUser] = useState({
-        superAdmin: 'bdnaimur@gmail.com',
+        superAdmin: "bdnaimur@gmail.com",
         email: '',
         password: '',
         name: ''
@@ -33,7 +33,7 @@ const Signin = () => {
             .then((result) => {
                 const users = result.user;
                if( user.superAdmin == users.email){
-                   user.superAdmin = true;
+                   users.superAdmin = true;
                }
 
                 users.isSigned = true;

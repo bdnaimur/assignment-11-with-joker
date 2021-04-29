@@ -5,16 +5,35 @@ import AllOrders from '../AllOrders/AllOrders';
 
 const Orders = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
-    const [pitha, setPitha] = useState([]);
+    const [orders, setOrders] = useState([]);
     let dependency = 0;
     useEffect(() => {
-        const url = `https://whispering-lowlands-13005.herokuapp.com/pithaUser?email=${loggedInUser.email}`;
+        const url = `http://localhost:5055/pithaUser?email=${loggedInUser.email}`;
         fetch(url)
             .then(res => res.json())
-            .then(data => setPitha(data))
+            .then(data => setOrders(data))
             dependency = 1
     }, [dependency])
-    console.log(pitha);
+    // console.log(pitha);
+    const deleteItem = (event, id) => {
+        console.log(event.currentTarget);
+        console.log(id);
+        fetch(`http://localhost:5055/delete/${id}`, {
+            method: 'DELETE',
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data) {
+                    const remainItem = orders.filter( item => item._id !== id);
+                    setOrders(remainItem);
+                    // console.log(data);
+                    // history.replace("/showAllOrders")
+                    // const getNode = document.getElementById("toHidden");
+                    // getNode.style.color = 'red';
+                }
+            })
+    }
     return (
         <div>
             <h4>Welcome {loggedInUser.displayName}, Your Orders: </h4>
@@ -29,7 +48,7 @@ const Orders = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {pitha.map(pth => <AllOrders pitha={pth}></AllOrders>)}
+                    {orders.map(pth => <AllOrders deleteItem={deleteItem}  pitha={pth}></AllOrders>)}
                 </tbody>
             </table>          
         </div>

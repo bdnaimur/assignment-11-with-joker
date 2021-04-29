@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import './Admin.css'
 import AllData from '../AllData/AllData'
@@ -10,8 +10,10 @@ import { faTasks } from '@fortawesome/free-solid-svg-icons'
 import OurTeam from '../OurTeam/OurTeam';
 import { faFirstOrder } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom';
+import { userContext } from '../../App';
 
 const Admin = () => {
+  const [loggedInUser, setLoggedInUser] = useContext(userContext);
   const { register, handleSubmit, watch, errors } = useForm();
   const [render, setRender] = useState(false);
   const [imageURL, setIMageURL] = useState(null);
@@ -23,7 +25,7 @@ const Admin = () => {
   });
 
   useEffect(() => {
-    const url = `https://whispering-lowlands-13005.herokuapp.com/services`;
+    const url = `http://localhost:5055/services`;
     fetch(url)
       .then(res => res.json())
       .then(data => {
@@ -40,7 +42,7 @@ const Admin = () => {
       price: data.price
     };
     console.log(eventData);
-    const url = `https://whispering-lowlands-13005.herokuapp.com/addServices`;
+    const url = `http://localhost:5055/addServices`;
 
     fetch(url, {
       method: 'POST',
@@ -68,6 +70,22 @@ const Admin = () => {
       });
 
   }
+
+  const deleteItem = (event, id) => {
+    console.log(event.currentTarget);
+    console.log(id);
+    fetch(`http://localhost:5055/delete/${id}`, {
+        method: 'DELETE',
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if (data) {
+                const remainItem = pithaWithUser.filter( item => item._id !== id);
+                setPithaWithUser(remainItem);
+            }
+        })
+}
   const handleAddClick = e => {
     const addclicked = { ...clicked };
     addclicked.add = true;
@@ -132,7 +150,7 @@ const Admin = () => {
             {clicked.manage ? <div>
               <table class="table table-hover shadow">
                 <tbody>
-                  {pithaWithUser.map(pitha => <AllData pitha={pitha}></AllData>)}
+                  {pithaWithUser.map(pitha => <AllData deleteItem={deleteItem} pitha={pitha}></AllData>)}
                 </tbody>
               </table>
             </div> : <h6 style={{ backgroundColor: "lightCyan", textAlign: "center", padding: "5px 0px" }}>Please Select Manage if you want to Edit or Delete</h6>}

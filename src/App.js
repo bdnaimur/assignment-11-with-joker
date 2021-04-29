@@ -45,9 +45,9 @@ function App() {
           <PrivateRoute path="/checkOut/:pithaId">
             <CheckOut/>
           </PrivateRoute>
-          <PrivateRoute path="/admin">
+          <Route path="/admin">
              <Admin/>
-            </PrivateRoute>
+            </Route>
             <PrivateRoute path="/userDashboard">
              <Dashboard/>
             </PrivateRoute>
@@ -57,9 +57,9 @@ function App() {
             <PrivateRoute path="/orders">
               <Orders/>
             </PrivateRoute>
-            <PrivateRoute path="/showAllOrders">
+            <Route path="/showAllOrders">
               <ShowAllOrders/>
-            </PrivateRoute>
+            </Route>
           <Route path="/deals">
             <Deals/>
           </Route>
