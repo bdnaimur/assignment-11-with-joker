@@ -15,8 +15,8 @@ const CheckOut = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                const clickedPitha = data.find(dt => dt._id === pithaId);
-                setProduct(clickedPitha);
+                const clickedProduct = data.find(dt => dt._id === pithaId);
+                setProduct(clickedProduct);
             })
     }, [pithaId])
     const handleClick = () => {
@@ -24,7 +24,8 @@ const CheckOut = () => {
         const productWithUser = {
             name:product.name,
             imageURL:product.imageURL,
-            price:product.price
+            price:product.price,
+            status:"pending"
         };
         productWithUser.email = loggedInUser.email;
         productWithUser.displayName = loggedInUser.displayName;

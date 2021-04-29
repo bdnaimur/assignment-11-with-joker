@@ -20,23 +20,6 @@ Modal.setAppElement('#root')
 const ModalForEdit = ({modalIsOpen, closeModal, orders, onSubmit, editItem}) => {
     const { register, handleSubmit, errors } = useForm();
 
-    // const onSubmit = (data, e) => {
-    //     const id = orders._id;
-    //     console.log("clicked", data, id);
-    //     fetch(`http://localhost:5055/update/${id}`, {
-    //         method: 'PATCH',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify(data)
-    //     })
-    //         .then(res => res.json())
-    //         .then(result => {
-    //             if (result) {
-    //                 console.log(result);
-    //             }
-    //         }) 
-    //     e.target.reset();
-    // }
-
     return (
         <div>
             {/* <button onClick={openModal}>Open Modal</button> */}

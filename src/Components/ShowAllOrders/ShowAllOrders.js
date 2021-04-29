@@ -7,6 +7,8 @@ const ShowAllOrders = () => {
     const [modalIsOpen, setIsOpen] = useState(false);
     const [editItems, setEditItems] = useState([]);
     const [depdency, setdependency] = useState(false);
+    const [statusInfo, setStatusInfo] = useState([]);
+    // load all data
     useEffect(() => {
         const url = `http://localhost:5055/vramankaris`;
         fetch(url)
@@ -15,7 +17,7 @@ const ShowAllOrders = () => {
                 setAllOrders(data)
             })
     }, [depdency])
-
+    // delete row
     const deleteItem = (event, id) => {
         console.log(event.currentTarget);
         console.log(id);
@@ -26,11 +28,12 @@ const ShowAllOrders = () => {
             .then(data => {
                 console.log(data);
                 if (data) {
-                    const remainItem = allOrders.filter( item => item._id !== id);
+                    const remainItem = allOrders.filter(item => item._id !== id);
                     setAllOrders(remainItem);
                 }
             })
     }
+    // update price and name
     function openModal() {
         setIsOpen(true);
 
@@ -49,28 +52,52 @@ const ShowAllOrders = () => {
         setdependency(false)
     }
     const onSubmit = (data, e) => {
+        console.log(data);
         console.log(editItems);
-            const id = editItems._id;
-            console.log("clicked", data, id);
-            fetch(`http://localhost:5055/update/${id}`, {
-                method: 'PATCH',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
+        const id = editItems._id;
+        console.log("clicked", data, id);
+        fetch(`http://localhost:5055/update/${id}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(result => {
+                if (result) {
+                    setdependency(true)
+                }
             })
-                .then(res => res.json())
-                .then(result => {
-                    if (result) {
-                        setdependency(true)
-                    }
-                }) 
-                closeModal();
-        }
+        closeModal();
+    }
+    // Change Status code ongoing or done
+    const handleChange = e => {
+        const getValue = e.target.value;
+        setStatusInfo(getValue);
+        setdependency(false)
+    }
+    const handleClick = id => {
+        const productWithStatus = {
+            status: statusInfo
+        };
+        console.log(productWithStatus);
+        const uri = `http://localhost:5055/updateStatus/${id}`;
+        fetch(uri, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(productWithStatus)
+        })
+            .then(res => {
+                setdependency(true)
+                console.log(res);
+            })
+
+    }
     return (
         <div>
             <h1>All Orders : {allOrders.length}</h1>
             <table class="m-5 table table-hover shadow">
                 <tbody>
-                    {allOrders.map(allOrder => <ShowAllOrdersDetails editItem={editItem} onSubmit={onSubmit} deleteItem={deleteItem} orders={allOrder} modalIsOpen={modalIsOpen} closeModal={closeModal} editItems={editItems}></ShowAllOrdersDetails>)}
+                    {allOrders.map(allOrder => <ShowAllOrdersDetails handleChange={handleChange} handleClick={handleClick} editItem={editItem} onSubmit={onSubmit} deleteItem={deleteItem} orders={allOrder} modalIsOpen={modalIsOpen} closeModal={closeModal} editItems={editItems}></ShowAllOrdersDetails>)}
                 </tbody>
             </table>
         </div>
