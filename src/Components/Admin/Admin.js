@@ -25,7 +25,7 @@ const Admin = () => {
   });
 
   useEffect(() => {
-    const url = `http://localhost:5055/services`;
+    const url = `https://whispering-lowlands-13005.herokuapp.com/services`;
     fetch(url)
       .then(res => res.json())
       .then(data => {
@@ -42,7 +42,7 @@ const Admin = () => {
       price: data.price
     };
     console.log(eventData);
-    const url = `http://localhost:5055/addServices`;
+    const url = `https://whispering-lowlands-13005.herokuapp.com/addServices`;
 
     fetch(url, {
       method: 'POST',
@@ -74,7 +74,7 @@ const Admin = () => {
   const deleteItem = (event, id) => {
     console.log(event.currentTarget);
     console.log(id);
-    fetch(`http://localhost:5055/delete/${id}`, {
+    fetch(`https://whispering-lowlands-13005.herokuapp.com/delete/${id}`, {
         method: 'DELETE',
     })
         .then(res => res.json())

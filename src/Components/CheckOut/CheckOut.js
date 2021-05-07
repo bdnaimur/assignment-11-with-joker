@@ -9,7 +9,7 @@ const CheckOut = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
     // console.log(product);
     useEffect(() => {
-        const url = "http://localhost:5055/services";
+        const url = "https://whispering-lowlands-13005.herokuapp.com/services";
         // console.log(url);
         fetch(url)
             .then(res => res.json())
@@ -30,7 +30,7 @@ const CheckOut = () => {
         productWithUser.email = loggedInUser.email;
         productWithUser.displayName = loggedInUser.displayName;
         console.log(productWithUser);
-        const url = "http://localhost:5055/addProductWithUser";
+        const url = "https://whispering-lowlands-13005.herokuapp.com/addProductWithUser";
         fetch(url, {
             method: 'POST', 
             headers: {

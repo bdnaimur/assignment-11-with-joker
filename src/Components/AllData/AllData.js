@@ -9,7 +9,7 @@ const AllData = ({pitha, deleteItem}) => {
     // const deletePitha = (event, id) => {
     //     console.log(event.currentTarget);
     //     console.log(id);
-    //     fetch(`http://localhost:5055/delete/${id}`, {
+    //     fetch(`https://whispering-lowlands-13005.herokuapp.com/delete/${id}`, {
     //         method: 'DELETE',
     //     })
     //         .then(res => res.json())

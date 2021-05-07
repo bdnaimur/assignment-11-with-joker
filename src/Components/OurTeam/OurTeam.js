@@ -15,7 +15,7 @@ const OurTeam = () => {
     });
 
     useEffect(() => {
-        const url = `http://localhost:5055/ourTeams`;
+        const url = `https://whispering-lowlands-13005.herokuapp.com/ourTeams`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -32,7 +32,7 @@ const OurTeam = () => {
             price: data.price
         };
         console.log(eventData);
-        const url = `http://localhost:5055/addOurTeams`;
+        const url = `https://whispering-lowlands-13005.herokuapp.com/addOurTeams`;
 
         fetch(url, {
             method: 'POST',

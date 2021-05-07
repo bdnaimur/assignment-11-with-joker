@@ -4,7 +4,7 @@ import ShowOurteamDetails from './ShowOurTeamDetails/ShowOurteamDetails';
 const ShowOurTeam = () => {
     const [allTeam, setAllTeam] = useState([] || 1)
     useEffect(() => {
-        const url = `http://localhost:5055/ourTeams`;
+        const url = `https://whispering-lowlands-13005.herokuapp.com/ourTeams`;
         fetch(url)
             .then(res => res.json())
             .then(data => {

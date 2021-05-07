@@ -8,7 +8,7 @@ const Orders = () => {
     const [orders, setOrders] = useState([]);
     let dependency = 0;
     useEffect(() => {
-        const url = `http://localhost:5055/pithaUser?email=${loggedInUser.email}`;
+        const url = `https://whispering-lowlands-13005.herokuapp.com/pithaUser?email=${loggedInUser.email}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setOrders(data))
@@ -18,7 +18,7 @@ const Orders = () => {
     const deleteItem = (event, id) => {
         console.log(event.currentTarget);
         console.log(id);
-        fetch(`http://localhost:5055/delete/${id}`, {
+        fetch(`https://whispering-lowlands-13005.herokuapp.com/delete/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

@@ -5,7 +5,7 @@ import BookingDetails from '../BookingDetails/BookingDetails';
 
 //     const [services, setServices] = useState(null)
 //     useEffect(()=>{
-//         const url = `http://localhost:5055/services`;
+//         const url = `https://whispering-lowlands-13005.herokuapp.com/services`;
 //         fetch(url)
 //         .then(res =>res.json())
 //         .then(data =>{
@@ -32,7 +32,7 @@ const Bookings = () => {
         setRender = true;
     }
 //     useEffect(()=>{
-//         const url = `http://localhost:5055/services`;
+//         const url = `https://whispering-lowlands-13005.herokuapp.com/services`;
 //         fetch(url)
 //         .then(res =>res.json())
 //         .then(data =>{
@@ -42,7 +42,7 @@ const Bookings = () => {
 //     console.log(services);
 
 useEffect(()=>{
-    const url = `http://localhost:5055/services`;
+    const url = `https://whispering-lowlands-13005.herokuapp.com/services`;
         fetch(url)
         .then(res =>res.json())
         .then(data => setServices(data))
